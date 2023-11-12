@@ -1,4 +1,4 @@
 ---
 layout: post
-title: PINNs
+title: Auto_Diff
 ---
