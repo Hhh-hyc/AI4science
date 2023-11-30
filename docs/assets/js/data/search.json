@@ -1,6 +1,74 @@
 [
   
   {
+    "title": "Fourier_Neural_Operator",
+    "url": "/AI4science/posts/fourier-neural-operator/",
+    "categories": "",
+    "tags": "",
+    "date": "2023-11-30 09:43:02 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "",
+    "content": ""
+  },
+  
+  {
+    "title": "do-why",
+    "url": "/AI4science/posts/do-why/",
+    "categories": "",
+    "tags": "",
+    "date": "2023-11-30 09:43:02 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "",
+    "content": ""
+  },
+  
+  {
+    "title": "Discover physical laws",
+    "url": "/AI4science/posts/discover-physical-laws/",
+    "categories": "",
+    "tags": "",
+    "date": "2023-11-30 09:43:02 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "",
+    "content": ""
+  },
+  
+  {
+    "title": "Auto_Diff",
+    "url": "/AI4science/posts/auto-diff/",
+    "categories": "",
+    "tags": "",
+    "date": "2023-11-30 09:43:02 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "",
+    "content": ""
+  },
+  
+  {
     "title": "DeepONet",
     "url": "/AI4science/posts/deeponet/",
     "categories": "Computational sciences, scientific machine learning",
@@ -15,6 +83,23 @@
     
     "snippet": "“Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1Conceptsfuncti...",
     "content": "“Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1Conceptsfunctional: a mapping from a space of functions into a real numberoperator: a mapping from a space of functions to another space of functionsArchitectureWhat DeepONet wants to do is to form a network to learn functions and points together, different from fully-connected neural networks that only gurantee a small approximation error, and expecting consideration on optimization error and generalization error.Architecture of DeepONet  Inputs          input functions $u(x_{1}),u(x_{2}),…,u(x_{m})$, will be learnt by (stacked/unstacked) branch net, of which input is $x_{1}, x_{2},…, x_{m}$, also called sensors.      points y will be learnt by trunk net        Requirements          consistency of of sensors        Notice          y and u(x) may be not equally matched in dimensions in high dimensional problems, so two sub-networks are needed.      input function is represented by neural networks.      Notices  Input functions here were mean-zero Gaussian Random field(GRF) and Orthogonal polynomials, and could be expanded to more than one function.  number of sensors m were derived to be sufficient enough to achieve accuracy, which is set as 100 in the paper.Personal OpinionsDeepOnet provides a primary method in learning PDEs and ODEs by the input function and seperate points. The input functions may be explicitly expressed by equations or implicitly expressed by networks, which indicates a nested functions that generally appears in the complex phenomena. However,  the process may lack of interpretability, when explaination is needed for the causality between input and output function.  Additionally, all sensors from the input function are packaged to be learned by p branch nets. What if there are multiple input functions to be learnt? Further, if we don’t know prior knowledge, how do we discern these functions from raw data, to achieve an approximator of mechanisms that learn known knowledge and may discover unknown knowledge.Further development  Solved problems          multiple-input operators - MIONet2      with physics - Physics-informed DeepOnets3      Extrapolation - DeepONet with physics or sparse observation4        Unsolved problems          Without prior knowledge, how could we learn explainable functions with mathematical thinking from raw data?      References            DeepXDE. https://deepxde.readthedocs.io/en/latest/modules/deepxde.nn.tensorflow.html. &#8617;              MIONet: Learning Multiple-Input Operators via Tensor Product. (2022). https://doi.org/10.1137/22M1477751. &#8617;              Learning the solution operator of parametric partial differential equations with physics-informed DeepONets.(2021). https://doi.org/10.1126/sciadv.abi8605. &#8617;              Reliable extrapolation of deep neural operators informed by physics or sparse observations. (2023). https://doi.org/10.1016/j.cma.2023.116064. &#8617;      "
+  },
+  
+  {
+    "title": "PINNs_Discovery",
+    "url": "/AI4science/posts/pinn2-md/",
+    "categories": "Computational sciences",
+    "tags": "pinn",
+    "date": "2023-11-10 12:00:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "SIMILAR to the former blog, the accurately learnt neural networks could also be beneficial when architectures are already known.Data-driven discovery for inverse problemsUpon solving inverse proble...",
+    "content": "SIMILAR to the former blog, the accurately learnt neural networks could also be beneficial when architectures are already known.Data-driven discovery for inverse problemsUpon solving inverse problems, PINNs1 also gives examples in continuous and discrete equations.In Navier-Strokes equations, the velocity $V(x,y,t)$ at x and y components, pressure fields $P(x,y,t)$ and their gradients would be described by neural networks. With data sampled in experiments, those NNs would be trained with great accuracy. Since the NS equation in 2D have been recognized as follows. The two unknown parameters $\\lambda_{1}$ and $\\lambda_{2}$ will be correspondingly calculated with the simulated $u(x,y,t)$, $v(x,y,t)$ and $P(x,y,t)$.\\[\\begin{align*}f: u_{t}+ \\lambda_{1}(uu_{x}+vu_{y})+&amp;P_{x}-\\lambda_{2}(u_{xx}+u_{yy}) \\\\g: v_{t}+ \\lambda_{1}(uv_{x}+vv_{y})+&amp;P_{y}-\\lambda_{2}(v_{xx}+v_{yy}) \\\\u_{x}+v_{y}&amp;=0\\\\\\end{align*}\\]where $u(x,y,t)$ and $v(x,y,t)$ denote the x-component and y-component of $V(x,y,t)$, and the NNs are searched within conditions of the third equation.Unlike the reasonable loss function in PINNs_Inference, which is made up of losses of initial and boundary condition as well ass PDE, the loss function here is represented as follows to achieve the minimum of different velocity fields and the the two PDE eqaution. In summary, although it is a little different in the form, the core concept of loss function is the same, to reach as accurate simulation as possible.\\[\\begin{align}MSE&amp;=\\frac{1}{N}\\sum^{N}_{i=1}(\\lvert u_{pred} - u^{i} \\rvert^{2} + \\lvert v_{pred}-v^{i} \\rvert^{2})  \\\\&amp;+\\frac{1}{N}\\sum^{N}_{i=1}(f_{pred}^{2}+g_{pred}^{2})\\end{align}\\]NoticesA technique was used here to jointly approximating $V(x,y,t)$ and $P(x,y,t)$ by a single neural network with two outputs. which could be seen in net_NS function. The last layer of neural_net was set as 2.def net_NS(self, x, y, t):        lambda_1 = self.lambda_1        lambda_2 = self.lambda_2                psi_and_p = self.neural_net(tf.concat([x,y,t], 1), self.weights, self.biases)        psi = psi_and_p[:,0:1]        p = psi_and_p[:,1:2]                u = tf.gradients(psi, y)[0]        v = -tf.gradients(psi, x)[0]                  u_t = tf.gradients(u, t)[0]        u_x = tf.gradients(u, x)[0]        u_y = tf.gradients(u, y)[0]        u_xx = tf.gradients(u_x, x)[0]        u_yy = tf.gradients(u_y, y)[0]                v_t = tf.gradients(v, t)[0]        v_x = tf.gradients(v, x)[0]        v_y = tf.gradients(v, y)[0]        v_xx = tf.gradients(v_x, x)[0]        v_yy = tf.gradients(v_y, y)[0]                p_x = tf.gradients(p, x)[0]        p_y = tf.gradients(p, y)[0]        f_u = u_t + lambda_1*(u*u_x + v*u_y) + p_x - lambda_2*(u_xx + u_yy)         f_v = v_t + lambda_1*(u*v_x + v*v_y) + p_y - lambda_2*(v_xx + v_yy)                return u, v, p, f_u, f_vDiscrete equations are dealt similar to what was done in PINN_Inference chapter.Personal views  In the indentification of $\\lambda_{1}$ and $\\lambda_{2}$, the structure of NS equation and the PDEs must be given. Can we learn each component including paramteters in the equation all by data? What if we don’t know the priori structure, is the equation simulated by networks the same as the priori knowledge we learnt through theories and experiments?References            Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. (2019). https://doi.org/10.1016/j.jcp.2018.10.045. &#8617;      "
   },
   
   {
