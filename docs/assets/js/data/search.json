@@ -1,74 +1,6 @@
 [
   
   {
-    "title": "Fourier_Neural_Operator",
-    "url": "/AI4science/posts/fourier-neural-operator/",
-    "categories": "",
-    "tags": "",
-    "date": "2023-11-30 09:43:02 +0800",
-    
-
-
-
-
-
-    
-    "snippet": "",
-    "content": ""
-  },
-  
-  {
-    "title": "do-why",
-    "url": "/AI4science/posts/do-why/",
-    "categories": "",
-    "tags": "",
-    "date": "2023-11-30 09:43:02 +0800",
-    
-
-
-
-
-
-    
-    "snippet": "",
-    "content": ""
-  },
-  
-  {
-    "title": "Discover physical laws",
-    "url": "/AI4science/posts/discover-physical-laws/",
-    "categories": "",
-    "tags": "",
-    "date": "2023-11-30 09:43:02 +0800",
-    
-
-
-
-
-
-    
-    "snippet": "",
-    "content": ""
-  },
-  
-  {
-    "title": "Auto_Diff",
-    "url": "/AI4science/posts/auto-diff/",
-    "categories": "",
-    "tags": "",
-    "date": "2023-11-30 09:43:02 +0800",
-    
-
-
-
-
-
-    
-    "snippet": "",
-    "content": ""
-  },
-  
-  {
     "title": "DeepONet",
     "url": "/AI4science/posts/deeponet/",
     "categories": "Computational sciences, scientific machine learning",
@@ -88,7 +20,7 @@
   {
     "title": "PINNs_Discovery",
     "url": "/AI4science/posts/pinn2-md/",
-    "categories": "Computational sciences",
+    "categories": "Computational sciences, scientific machine learning",
     "tags": "pinn",
     "date": "2023-11-10 12:00:00 +0800",
     
@@ -105,7 +37,7 @@
   {
     "title": "PINNs_Inference",
     "url": "/AI4science/posts/pinns/",
-    "categories": "Computational sciences",
+    "categories": "Computational sciences, scientific machine learning",
     "tags": "pinn",
     "date": "2023-11-04 12:00:00 +0800",
     
