@@ -1,6 +1,6 @@
 self.importScripts('/AI4science/assets/js/data/swcache.js');
 
-const cacheName = 'chirpy-1701354285';
+const cacheName = 'chirpy-1701354726';
 
 function verifyDomain(url) {
   for (const domain of allowedDomains) {

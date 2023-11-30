@@ -1,17 +1,17 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://localhost:4000/AI4science/</id>
+  <id>https://hhh-hyc.github.io/AI4science/</id>
   <title>AI for science</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-11-30T22:24:44+08:00</updated>
+  <updated>2023-11-30T22:32:04+08:00</updated>
   <author>
     <name>YC</name>
-    <uri>http://localhost:4000/AI4science/</uri>
+    <uri>https://hhh-hyc.github.io/AI4science/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="http://localhost:4000/AI4science/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="https://hhh-hyc.github.io/AI4science/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
-    href="http://localhost:4000/AI4science/"/>
+    href="https://hhh-hyc.github.io/AI4science/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <rights> © 2023 YC </rights>
   <icon>/AI4science/assets/img/favicons/favicon.ico</icon>
@@ -21,13 +21,13 @@
   
   <entry>
     <title>DeepONet</title>
-    <link href="http://localhost:4000/AI4science/posts/deeponet/" rel="alternate" type="text/html" title="DeepONet" />
+    <link href="https://hhh-hyc.github.io/AI4science/posts/deeponet/" rel="alternate" type="text/html" title="DeepONet" />
     <published>2023-11-17T12:00:00+08:00</published>
   
     <updated>2023-11-17T12:00:00+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/deeponet/</id>
-    <content src="http://localhost:4000/AI4science/posts/deeponet/" />
+    <id>https://hhh-hyc.github.io/AI4science/posts/deeponet/</id>
+    <content src="https://hhh-hyc.github.io/AI4science/posts/deeponet/" />
     <author>
       <name>YC</name>
     </author>
@@ -67,13 +67,13 @@ What DeepONet wants to do is to form a netw...
   
   <entry>
     <title>PINNs_Discovery</title>
-    <link href="http://localhost:4000/AI4science/posts/pinn2-md/" rel="alternate" type="text/html" title="PINNs_Discovery" />
+    <link href="https://hhh-hyc.github.io/AI4science/posts/pinn2-md/" rel="alternate" type="text/html" title="PINNs_Discovery" />
     <published>2023-11-10T12:00:00+08:00</published>
   
     <updated>2023-11-10T12:00:00+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/pinn2-md/</id>
-    <content src="http://localhost:4000/AI4science/posts/pinn2-md/" />
+    <id>https://hhh-hyc.github.io/AI4science/posts/pinn2-md/</id>
+    <content src="https://hhh-hyc.github.io/AI4science/posts/pinn2-md/" />
     <author>
       <name>YC</name>
     </author>
@@ -107,13 +107,13 @@ In Navier-Strokes equations, the velocity $V(x,y,t)$ at x and y components, pres
   
   <entry>
     <title>PINNs_Inference</title>
-    <link href="http://localhost:4000/AI4science/posts/pinns/" rel="alternate" type="text/html" title="PINNs_Inference" />
+    <link href="https://hhh-hyc.github.io/AI4science/posts/pinns/" rel="alternate" type="text/html" title="PINNs_Inference" />
     <published>2023-11-04T12:00:00+08:00</published>
   
     <updated>2023-11-30T22:18:08+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/pinns/</id>
-    <content src="http://localhost:4000/AI4science/posts/pinns/" />
+    <id>https://hhh-hyc.github.io/AI4science/posts/pinns/</id>
+    <content src="https://hhh-hyc.github.io/AI4science/posts/pinns/" />
     <author>
       <name>YC</name>
     </author>
@@ -148,13 +148,13 @@ Given a general form of PDEs $f(t,x)$, PINN could get to the solution $u(t,x)$ o
   
   <entry>
     <title>Hybrid hydrologcial models</title>
-    <link href="http://localhost:4000/AI4science/posts/h2m/" rel="alternate" type="text/html" title="Hybrid hydrologcial models" />
+    <link href="https://hhh-hyc.github.io/AI4science/posts/h2m/" rel="alternate" type="text/html" title="Hybrid hydrologcial models" />
     <published>2023-10-30T00:00:00+08:00</published>
   
     <updated>2023-11-30T09:20:54+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/h2m/</id>
-    <content src="http://localhost:4000/AI4science/posts/h2m/" />
+    <id>https://hhh-hyc.github.io/AI4science/posts/h2m/</id>
+    <content src="https://hhh-hyc.github.io/AI4science/posts/h2m/" />
     <author>
       <name>YC</name>
     </author>
@@ -193,13 +193,13 @@ Creative points
   
   <entry>
     <title>Preface</title>
-    <link href="http://localhost:4000/AI4science/posts/categories/" rel="alternate" type="text/html" title="Preface" />
+    <link href="https://hhh-hyc.github.io/AI4science/posts/categories/" rel="alternate" type="text/html" title="Preface" />
     <published>2023-10-29T00:00:00+08:00</published>
   
     <updated>2023-11-30T09:20:54+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/categories/</id>
-    <content src="http://localhost:4000/AI4science/posts/categories/" />
+    <id>https://hhh-hyc.github.io/AI4science/posts/categories/</id>
+    <content src="https://hhh-hyc.github.io/AI4science/posts/categories/" />
     <author>
       <name>YC</name>
     </author>
