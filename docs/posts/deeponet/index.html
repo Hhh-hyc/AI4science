@@ -35,25 +35,25 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Hybrid hydrologcial models" />
+<meta property="og:title" content="DeepONet" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Concepts in H2M" />
-<meta property="og:description" content="Concepts in H2M" />
-<link rel="canonical" href="http://localhost:4000/AI4science/posts/h2m/" />
-<meta property="og:url" content="http://localhost:4000/AI4science/posts/h2m/" />
+<meta name="description" content="“Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1 DeepXDE. https://deepxde.readthedocs.io/en/latest/modules/deepxde.nn.tensorflow.html. &#8617;" />
+<meta property="og:description" content="“Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1 DeepXDE. https://deepxde.readthedocs.io/en/latest/modules/deepxde.nn.tensorflow.html. &#8617;" />
+<link rel="canonical" href="http://localhost:4000/AI4science/posts/deeponet/" />
+<meta property="og:url" content="http://localhost:4000/AI4science/posts/deeponet/" />
 <meta property="og:site_name" content="AI for science" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-30T00:00:00+08:00" />
+<meta property="article:published_time" content="2023-11-17T12:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Hybrid hydrologcial models" />
+<meta property="twitter:title" content="DeepONet" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-30T00:00:00+08:00","datePublished":"2023-10-30T00:00:00+08:00","description":"Concepts in H2M","headline":"Hybrid hydrologcial models","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/AI4science/posts/h2m/"},"url":"http://localhost:4000/AI4science/posts/h2m/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-17T12:00:00+08:00","datePublished":"2023-11-17T12:00:00+08:00","description":"“Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1 DeepXDE. https://deepxde.readthedocs.io/en/latest/modules/deepxde.nn.tensorflow.html. &#8617;","headline":"DeepONet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/AI4science/posts/deeponet/"},"url":"http://localhost:4000/AI4science/posts/deeponet/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Hybrid hydrologcial models | AI for science
+  <title>DeepONet | AI for science
   </title>
 
   <!--
@@ -453,7 +453,7 @@
         
           
             
-              <span>Hybrid hydrologcial models</span>
+              <span>DeepONet</span>
             
 
           
@@ -741,7 +741,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Hybrid hydrologcial models</h1>
+    <h1 data-toc-skip>DeepONet</h1>
 
     <div class="post-meta text-muted">
       <!-- published date -->
@@ -757,13 +757,13 @@
 
 <time
   
-  data-ts="1698595200"
+  data-ts="1700193600"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Oct 30, 2023
+  Nov 17, 2023
 </time>
 
       </span>
@@ -808,9 +808,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="323 words"
+  title="392 words"
 >
-  <em>1 min</em> read</span>
+  <em>2 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -819,118 +819,87 @@
   </header>
 
   <div class="content">
-    <h3 id="concepts-in-h2m"><span class="me-2">Concepts in H2M</span><a href="#concepts-in-h2m" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+    <p>“Inspired from the universal approximation theorem, <em>neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators</em>”<sup id="fnref:foot3" role="doc-noteref"><a href="#fn:foot3" class="footnote" rel="footnote">1</a></sup></p>
 
-<p data-toc-skip="" class="mt-4 mb-0">Parameters in hybrid models are categorized into ML parameters and physical parameters<sup id="fnref:footnote" role="doc-noteref"><a href="#fn:footnote" class="footnote" rel="footnote">1</a></sup>. Thus, hybrid modeling are grouped into parameteric (both learned) and non-parameteric (the latter parameters fixed) ones.</p>
+<h3 id="concepts"><span class="me-2">Concepts</span><a href="#concepts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<h3 id="h2m-structure"><span class="me-2">H2M structure</span><a href="#h2m-structure" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>functional: a mapping from a space of functions into a real number</p>
 
-<p><a href="/AI4science/assets/img/h2m_img.png" class="popup img-link image-responsive shimmer"><img src="/AI4science/assets/img/h2m_img.png" alt="" width="846" height="496"  loading="lazy"></a>
-<em>The end-to-end hybrid hydrological model</em></p>
+<p>operator: a mapping from a space of functions to another space of functions</p>
 
-<h3 id="creative-points"><span class="me-2">Creative points</span><a href="#creative-points" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="architecture"><span class="me-2">Architecture</span><a href="#architecture" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>What DeepONet wants to do is to form a network to learn functions and points together, different from fully-connected neural networks that only gurantee a small approximation error, and expecting consideration on optimization error and generalization error.</p>
+
+<p><a href="/AI4science/assets/img/deeponet.png" class="popup img-link image-responsive shimmer"><img src="/AI4science/assets/img/deeponet.png" alt="" width="788" height="505"  loading="lazy"></a>
+<em>Architecture of DeepONet</em></p>
+
 <ul>
-  <li>A physical state $s_{t-1}$ is taken into the recurrent neural network $ g_{RNN} $ for accounting memory effects.</li>
+  <li>Inputs
+    <ul>
+      <li>input functions $u(x_{1}),u(x_{2}),…,u(x_{m})$, will be learnt by (stacked/unstacked) branch net, of which input is $x_{1}, x_{2},…, x_{m}$, also called sensors.</li>
+      <li>points <code class="language-plaintext highlighter-rouge">y</code> will be learnt by trunk net</li>
+    </ul>
+  </li>
+  <li>Requirements
+    <ul>
+      <li>consistency of of sensors</li>
+    </ul>
+  </li>
+  <li>Notice
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">y</code> and <code class="language-plaintext highlighter-rouge">u(x)</code> may be not equally matched in dimensions in high dimensional problems, so two sub-networks are needed.</li>
+      <li>input function is represented by neural networks.</li>
+    </ul>
+  </li>
 </ul>
 
-\[h_{t}=g_{RNN}(h_{t-1},[x_{t},s_{t-1}])\]
+<h3 id="notices"><span class="me-2">Notices</span><a href="#notices" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ul>
-  <li>
-    <p>A mapping output function $g_{out}$ that links certain latent variable or coefficient $p_{t}$ in process-based models with $h_{t}$</p>
-  </li>
-  <li>
-    <p>The process-based model $f_{pb}$ considers not only original physical constraints $s_{t}$, but also memory effects from RNN.</p>
-  </li>
+  <li>Input functions here were mean-zero Gaussian Random field(GRF) and Orthogonal polynomials, and could be expanded to more than one function.</li>
+  <li>number of sensors <code class="language-plaintext highlighter-rouge">m</code> were derived to be sufficient enough to achieve accuracy, which is set as 100 in the paper.</li>
 </ul>
-
-\[y_{t}, s_{t}=f_{pb}(p_{t},x_{t},s_{t-1})\]
-
-<h3 id="comparisons-with-others"><span class="me-2">Comparisons with others</span><a href="#comparisons-with-others" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<ol>
-  <li>H2M
-    <ul>
-      <li>Pros
-        <ul>
-          <li>hard physical constraints</li>
-          <li>additional insights of latent variables and coefficients</li>
-          <li>partial interpretability</li>
-        </ul>
-      </li>
-      <li>Cons
-        <ul>
-          <li>qunatification of uncertainties</li>
-          <li>Generalizability needs to be investigated in certain cases</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Regularization via loss functions (soft constriants)
-    <ul>
-      <li>penalizing physically inconsistent results</li>
-      <li>Pros
-        <ul>
-          <li>additional means in diagosing physical inconsistency</li>
-        </ul>
-      </li>
-      <li>Cons
-        <ul>
-          <li>penalizing physically inconsistent results does not always make sense</li>
-          <li>lacks of hard physical constraints</li>
-          <li>no insights via latent variables and coefficients</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Mass conserving neural networks (hard constraints)
-    <ul>
-      <li>adding inductive biase</li>
-      <li>Pros
-        <ul>
-          <li>enhances robustness and generalizability</li>
-          <li>good performance in extreme events</li>
-        </ul>
-      </li>
-      <li>Cons
-        <ul>
-          <li>does not outperform non-mass conserving architecture</li>
-          <li>limited interpretability</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Data assimilation
-    <ul>
-      <li>combining simulations from process-based models and obervation for the optimal estimates of geophysical states</li>
-      <li>Pros
-        <ul>
-          <li>aim to quantify errors</li>
-        </ul>
-      </li>
-      <li>Cons
-        <ul>
-          <li>remaining model errors</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
 
 <h3 id="personal-opinions"><span class="me-2">Personal Opinions</span><a href="#personal-opinions" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>DeepOnet provides a primary method in learning PDEs and ODEs by the input function and seperate points. The input functions may be explicitly expressed by equations or implicitly expressed by networks, which indicates a nested functions that generally appears in the complex phenomena. However,</p>
+<ol>
+  <li>the process may <strong>lack of interpretability</strong>, when explaination is needed for the causality between input and output function.</li>
+  <li>Additionally, all sensors from the input function are packaged to be learned by <code class="language-plaintext highlighter-rouge">p</code> branch nets. What if there are multiple input functions to be learnt? Further, if we don’t know prior knowledge, how do we discern these functions from raw data, to achieve an approximator of mechanisms that learn known knowledge and may discover unknown knowledge.</li>
+</ol>
+
+<h3 id="further-development"><span class="me-2">Further development</span><a href="#further-development" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>Compared to physics-constrained machine learning<sup id="fnref:fn-nth-2" role="doc-noteref"><a href="#fn:fn-nth-2" class="footnote" rel="footnote">2</a></sup>, using neural networks to replace empirical parameter, it steps further in linking RNNs with latent variables (coefficients) in process-based models, which further taps the potential of AI.</li>
-  <li>A question is why acknowledge latent variables (coefficients) activated by softplus function after LSTM layer as Evapotranspration and snow water equvilatent in multi-task layer<a href="https://ieeexplore.ieee.org/document/8578879">https://ieeexplore.ieee.org/document/8578879</a>, and how to figure out its effect.</li>
+  <li>Solved problems
+    <ul>
+      <li>multiple-input operators - MIONet<sup id="fnref:foot1" role="doc-noteref"><a href="#fn:foot1" class="footnote" rel="footnote">2</a></sup></li>
+      <li>with physics - Physics-informed DeepOnets<sup id="fnref:foot2" role="doc-noteref"><a href="#fn:foot2" class="footnote" rel="footnote">3</a></sup></li>
+      <li>Extrapolation - DeepONet with physics or sparse observation<sup id="fnref:foot4" role="doc-noteref"><a href="#fn:foot4" class="footnote" rel="footnote">4</a></sup></li>
+    </ul>
+  </li>
+  <li>Unsolved problems
+    <ul>
+      <li>Without prior knowledge, how could we learn explainable functions with mathematical thinking from raw data?</li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="footnote"><span class="me-2">Footnote</span><a href="#footnote" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="references"><span class="me-2">References</span><a href="#references" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:footnote" role="doc-endnote">
-      <p>Deep learning and hybrid modeling of global vegetation and hydrology. Basil Kraft. 2022. <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    <li id="fn:foot3" role="doc-endnote">
+      <p>DeepXDE. https://deepxde.readthedocs.io/en/latest/modules/deepxde.nn.tensorflow.html. <a href="#fnref:foot3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:fn-nth-2" role="doc-endnote">
-      <p>Zhao, W. L., Gentine, P., Reichstein, M., Zhang, Y., Zhou, S., Wen, Y., et al. (2019). Physics-constrained machine learning of evapotranspiration. Geophysical Research Letters, 46, 14496–14507. https://doi.org/10.1029/2019GL085291 <a href="#fnref:fn-nth-2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    <li id="fn:foot1" role="doc-endnote">
+      <p>MIONet: Learning Multiple-Input Operators via Tensor Product. (2022). https://doi.org/10.1137/22M1477751. <a href="#fnref:foot1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:foot2" role="doc-endnote">
+      <p>Learning the solution operator of parametric partial differential equations with physics-informed DeepONets.(2021). https://doi.org/10.1126/sciadv.abi8605. <a href="#fnref:foot2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:foot4" role="doc-endnote">
+      <p>Reliable extrapolation of deep neural operators informed by physics or sparse observations. (2023). https://doi.org/10.1016/j.cma.2023.116064. <a href="#fnref:foot4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -943,7 +912,8 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/AI4science/categories/models/">models</a>
+          <a href="/AI4science/categories/computational-sciences/">Computational sciences</a>,
+          <a href="/AI4science/categories/scientific-machine-learning/">scientific machine learning</a>
       </div>
     
 
@@ -953,9 +923,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/AI4science/tags/hybrid-models/"
+            href="/AI4science/tags/deeponet/"
             class="post-tag no-text-decoration"
-          >hybrid models</a>
+          >deeponet</a>
         
       </div>
     
@@ -990,7 +960,7 @@
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Hybrid%20hydrologcial%20models%20-%20AI%20for%20science&url=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fh2m%2F"
+        href="https://twitter.com/intent/tweet?text=DeepONet%20-%20AI%20for%20science&url=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fdeeponet%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1003,7 +973,7 @@
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Hybrid%20hydrologcial%20models%20-%20AI%20for%20science&u=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fh2m%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=DeepONet%20-%20AI%20for%20science&u=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fdeeponet%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -1016,7 +986,7 @@
     
       
       <a
-        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fh2m%2F&text=Hybrid%20hydrologcial%20models%20-%20AI%20for%20science"
+        href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2FAI4science%2Fposts%2Fdeeponet%2F&text=DeepONet%20-%20AI%20for%20science"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -1297,6 +1267,18 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1312,7 +1294,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/AI4science/posts/categories/" class="post-preview card h-100">
+          <a href="/AI4science/posts/pinns/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1324,14 +1306,14 @@
 
 <time
   
-  data-ts="1698508800"
+  data-ts="1699070400"
   data-df="ll"
   
 >
-  Oct 29, 2023
+  Nov  4, 2023
 </time>
 
-              <h4 class="pt-0 my-2">Preface</h4>
+              <h4 class="pt-0 my-2">PINNs_Inference</h4>
               <div class="text-muted">
                 <p>
                   
@@ -1340,7 +1322,51 @@
 
 
 
-                  Great progresses have been made by researchers for the mutual devleopment between physically-based models (mechanism models) and Artificial intelligence (AI for short). Several typical milestones r...
+                  Trained to solve supervised learning tasks, Physic-informed neural networks (PINNs) are defined for two classes of problems:
+data-driven solution and data-driven discovery of partial differential e...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/AI4science/posts/pinn2-md/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1699243200"
+  data-df="ll"
+  
+>
+  Nov  6, 2023
+</time>
+
+              <h4 class="pt-0 my-2">PINNs_2.md</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  Data-driven discovery （inverse problems）
+
+Further Development
+
+  Is there any possibility to represent equations by machine learning, to break the limitation of human experiments?
+
+
+
                 </p>
               </div>
             </div>
@@ -1362,21 +1388,21 @@
 
   
     <a
-      href="/AI4science/posts/categories/"
+      href="/AI4science/posts/do-why/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>Preface</p>
+      <p>do-why</p>
     </a>
   
 
   
     <a
-      href="/AI4science/posts/pinns/"
+      href="/AI4science/posts/fourier-neural-operator/"
       class="btn btn-outline-primary"
       aria-label="Newer"
     >
-      <p>PINNs_Inference</p>
+      <p>Fourier_Neural_Operator</p>
     </a>
   
 </nav>

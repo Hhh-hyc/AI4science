@@ -48,7 +48,7 @@
 <meta property="twitter:title" content="PINNs_Inference" />
 <meta name="twitter:site" content="@twitter_username" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-04T12:00:00+08:00","datePublished":"2023-11-04T12:00:00+08:00","description":"Trained to solve supervised learning tasks, Physic-informed neural networks (PINNs) are defined for two classes of problems: data-driven solution and data-driven discovery of partial differential equations (PDEs).","headline":"PINNs_Inference","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/AI4science/posts/pinns/"},"url":"http://localhost:4000/AI4science/posts/pinns/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-29T22:50:22+08:00","datePublished":"2023-11-04T12:00:00+08:00","description":"Trained to solve supervised learning tasks, Physic-informed neural networks (PINNs) are defined for two classes of problems: data-driven solution and data-driven discovery of partial differential equations (PDEs).","headline":"PINNs_Inference","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/AI4science/posts/pinns/"},"url":"http://localhost:4000/AI4science/posts/pinns/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -567,6 +567,49 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -612,6 +655,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          Updated
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1701269422"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Nov 29, 2023
+</time>
+
+        </span>
+      
 
       
 
@@ -624,7 +690,7 @@
 
           <em>
             
-              <a href="https://github.com/Hhh-hyc/AI4science">Yisreal</a>
+              <a href="https://github.com/Hhh-hyc/AI4science">YC</a>
             
           </em>
         </span>
@@ -650,9 +716,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="968 words"
+  title="1333 words"
 >
-  <em>5 min</em> read</span>
+  <em>7 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -661,24 +727,25 @@
   </header>
 
   <div class="content">
-    <p>Trained to solve <code class="language-plaintext highlighter-rouge">supervised learning tasks</code>, Physic-informed neural networks (PINNs) are defined for two classes of problems:
+    <p>Trained to solve <code class="language-plaintext highlighter-rouge">supervised learning</code> tasks, Physic-informed neural networks (PINNs) are defined for two classes of problems:
 data-driven solution and data-driven discovery of partial differential equations (PDEs).</p>
 
 <h3 id="data-driven-solution"><span class="me-2">Data-driven solution</span><a href="#data-driven-solution" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>Given a general form of PDEs $f(t,x)$, PINN could get to the solution $u(t,x)$ of this 1-D non-linear equation with only small amount of training data, namely initial and boundary conditions of $u(t,x)$ as well as sampled data of $f(t,x)$.</p>
+<p>Given a general form of PDEs $f(t,x)$, PINN could get to the solution $u(t,x)$ of this 1-dimensional non-linear equation with only small amount of training data, namely initial and boundary conditions of $u(t,x)$ as well as the sampled data of $f(t,x)$.</p>
 
-<p>E.g., <strong>Discrete time inference equation: Allen-Cahn equation</strong></p>
+<h4 id="continuous-time-inference-equation-burgers-equation"><span class="me-2">Continuous time inference equation: Burger’s equation</span><a href="#continuous-time-inference-equation-burgers-equation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 \[f(t,x)=u_{t}+uu_{xx}-(0.01/\pi)u_{xx}\]
 
-<p>By minimizing the mean square error loss $MSE_{u}+MSE_{f}$,</p>
+<p>By minimizing the mean square error loss $MSE_{u}+MSE_{f}$, including the data measurements of $u(t,x)$ at initial and boundary conditions, and the supervised loss of the Burger’s equation, $u(t,x)$ is accurately simulated by neural networks.</p>
 
 \[MSE_{u}=\frac{1}{N_{u}}\sum_{i=0}^{N_{u}}\lvert u(t_{u}^{i},x_{u}^{i})-u^{i} \rvert^2\]
 
 \[MSE_{f}=\frac{1}{N_{f}}\sum_{i=0}^{N_{f}}\lvert f(t_{f}^{i},x_{f}^{i}) \rvert^2\]
 
-<p>To approximate $u(t,x)$ by $f(t,x)$, neural networks are defined as follows:</p>
+<p>Steps are as follows.</p>
+
 <ol>
   <li>Weights between layers are defined like <code class="language-plaintext highlighter-rouge">xavier_init</code>
     <div class="language-python highlighter-rouge"><div class="code-header">
@@ -743,29 +810,12 @@ data-driven solution and data-driven discovery of partial differential equations
          <span class="n">H</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">tanh</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">),</span> <span class="n">b</span><span class="p">))</span>
      <span class="n">W</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
      <span class="n">b</span> <span class="o">=</span> <span class="n">biases</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-     <span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># appending tanh?
+     <span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">tanh</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">),</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># YC: tf.tanh was personally added.
 </span>     <span class="k">return</span> <span class="n">Y</span>
 </pre></td></tr></tbody></table></code></div>    </div>
     <p>where, <code class="language-plaintext highlighter-rouge">H</code> seems like restricting the value of the first layer within [-1,1].</p>
   </li>
-  <li>As weights, <code class="language-plaintext highlighter-rouge">dummy_x0(x1)_tf</code> is identity matirx of <code class="language-plaintext highlighter-rouge">x0(x1)</code> rows and <code class="language-plaintext highlighter-rouge">q</code> columns, leading to no changes at given case.
-    <div class="language-python highlighter-rouge"><div class="code-header">
-        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">fwd_gradients_0</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>        
-     <span class="n">g</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">gradients</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grad_ys</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">dummy_x0_tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-     <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="nf">gradients</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">dummy_x0_tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> 
-<span class="k">def</span> <span class="nf">fwd_gradients_1</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>        
- <span class="n">g</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">gradients</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grad_ys</span><span class="o">=</span><span class="n">self</span><span class="p">.</span><span class="n">dummy_x1_tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
- <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="nf">gradients</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">dummy_x1_tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> 
-</pre></td></tr></tbody></table></code></div>    </div>
-  </li>
-  <li>Through <code class="language-plaintext highlighter-rouge">net_U0</code> and <code class="language-plaintext highlighter-rouge">net_U1</code>, $f(t,x)$ is generated by $U$ and $U_{xx}$, with the same dimension of $N$ x $q$, while $U1$ is generated  with a dimension of (N, q+1).
+  <li>As weights, <code class="language-plaintext highlighter-rouge">dummy_x0(x1)_tf</code> is identical matirx of <code class="language-plaintext highlighter-rouge">x0(x1)</code> rows, and are thus replaced by <code class="language-plaintext highlighter-rouge">x0(x1)</code>. Besides, to adjust to the tf 2.x framework, tf. gradients() was replaced with tf.GradientTape(), and gradient process was merged into the core part of representing loss functions in PINNs.
     <div class="language-python highlighter-rouge"><div class="code-header">
         <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -780,21 +830,44 @@ data-driven solution and data-driven discovery of partial differential equations
 10
 11
 12
-</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">net_U0</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># x0
-</span>     <span class="n">U1</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">neural_net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">biases</span><span class="p">)</span>
-     <span class="n">U</span> <span class="o">=</span> <span class="n">U1</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-     <span class="n">U_x</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">fwd_gradients_0</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-     <span class="n">U_xx</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">fwd_gradients_0</span><span class="p">(</span><span class="n">U_x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">net_U0</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># YC: using GradientTape instead of gradients
+</span>     <span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="nc">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+             <span class="n">g</span><span class="p">.</span><span class="nf">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+             <span class="k">with</span> <span class="n">tf</span><span class="p">.</span> <span class="nc">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">gg</span><span class="p">:</span>
+                     <span class="n">gg</span><span class="p">.</span><span class="nf">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                     <span class="n">U1</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">neural_net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">biases</span><span class="p">)</span>
+                     <span class="n">U</span> <span class="o">=</span> <span class="n">U1</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+             <span class="n">U_x</span> <span class="o">=</span> <span class="n">gg</span><span class="p">.</span><span class="nf">gradient</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+     <span class="n">U_xx</span> <span class="o">=</span> <span class="n">gg</span><span class="p">.</span><span class="nf">gradient</span><span class="p">(</span><span class="n">U_x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
      <span class="n">F</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">*</span><span class="n">U</span> <span class="o">-</span> <span class="mf">5.0</span><span class="o">*</span><span class="n">U</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="o">*</span><span class="n">U_xx</span>
-     <span class="n">U0</span> <span class="o">=</span> <span class="n">U1</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="o">*</span><span class="n">tf</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">IRK_weights</span><span class="p">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (N, q+1)-(N, q)=(N,q+1)
-</span>     <span class="k">return</span> <span class="n">U0</span> 
+     <span class="n">Ut</span> <span class="o">=</span> <span class="n">U1</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="o">*</span><span class="n">tf</span><span class="p">.</span><span class="nf">matmul</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">IRK_weights</span><span class="p">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># dt was only used here in the PINNs to represent the linear variation in the dimension of t. U1 denotes the solution at t0, and Ut denotes the solution at t1, where t1-t0=dt.
+</span>     <span class="k">return</span> <span class="n">Ut</span> 
 <span class="k">def</span> <span class="nf">net_U1</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># x1
 </span>     <span class="n">U1</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">neural_net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">biases</span><span class="p">)</span>
      <span class="n">U1_x</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">fwd_gradients_1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-     <span class="k">return</span> <span class="n">U1</span><span class="p">,</span> <span class="n">U1_x</span>   <span class="c1">#（2, q+1)  
-</span></pre></td></tr></tbody></table></code></div>    </div>
+     <span class="k">return</span> <span class="n">U1</span><span class="p">,</span> <span class="n">U1_x</span>   
+</pre></td></tr></tbody></table></code></div>    </div>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">loss</code> is defined by $u0$, products of functions of $net_{U0}$ and $net_{U1}$ in step 5.
+  <li><code class="language-plaintext highlighter-rouge">loss</code> is defined by loss between the prediction (U0_pred) and the measurement(u0) of the PDE solution ($u(t,x)$) as well as the loss of boundary condition, represented by U1.
+    <div class="language-python highlighter-rouge"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">self</span><span class="p">.</span><span class="n">U0_pred</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">net_U0</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x0_tf</span><span class="p">)</span> 
+<span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">net_U1</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x1_tf</span><span class="p">)</span> 
+<span class="n">self</span><span class="p">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">u0_tf</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U0_pred</span><span class="p">))</span> <span class="o">+</span> \  
+            <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]))</span> <span class="o">+</span> \
+            <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]))</span> 
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>To minimize the loss function, optimizers, <code class="language-plaintext highlighter-rouge">Adam</code> and <code class="language-plaintext highlighter-rouge">L-BFGS</code>, were utilized in sequence. The appliance of L-BFGS was updated in tf 2.x framework and updated as follows.
     <div class="language-python highlighter-rouge"><div class="code-header">
         <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -803,26 +876,49 @@ data-driven solution and data-driven discovery of partial differential equations
 4
 5
 6
-</pre></td><td class="rouge-code"><pre><span class="n">self</span><span class="p">.</span><span class="n">U0_pred</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">net_U0</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x0_tf</span><span class="p">)</span> <span class="c1"># N x (q+1)
-</span><span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">net_U1</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x1_tf</span><span class="p">)</span> <span class="c1"># N1 x (q+1)
-</span><span class="n">self</span><span class="p">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">u0_tf</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U0_pred</span><span class="p">))</span> <span class="o">+</span> \   
-            <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_pred</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]))</span> <span class="o">+</span> \
-            <span class="n">tf</span><span class="p">.</span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="nf">square</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">self</span><span class="p">.</span><span class="n">U1_x_pred</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]))</span> 
-         <span class="c1"># (N,1)-(N,q+1); (1,q+1)-(1,q+1); (1,q+1)-(1,q+1)
-</span></pre></td></tr></tbody></table></code></div>    </div>
-    <p>The first row of <code class="language-plaintext highlighter-rouge">self.loss</code> represents $MSE_{f}$;The second and third rows of <code class="language-plaintext highlighter-rouge">self.loss</code> represent $MSE_{u}$, with the initial and boundary data, $x1$.</p>
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">nIter</span><span class="p">):</span>
+     <span class="n">tf_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">self</span><span class="p">.</span><span class="n">x0_tf</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">u0_tf</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="n">u0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">x1_tf</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="n">x1</span><span class="p">}</span>
+     <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+     <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">nIter</span><span class="p">):</span>
+         <span class="n">self</span><span class="p">.</span><span class="n">sess</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">train_op_Adam</span><span class="p">,</span> <span class="n">tf_dict</span><span class="p">)</span>
+         <span class="c1"># Print
+</span>         <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+             <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+             <span class="n">loss_value</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">sess</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">loss</span><span class="p">,</span> <span class="n">tf_dict</span><span class="p">)</span>
+             <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">It: %d, Loss: %.3e, Time: %.2f</span><span class="sh">'</span> <span class="o">%</span> 
+                   <span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">loss_value</span><span class="p">,</span> <span class="n">elapsed</span><span class="p">))</span>
+             <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span>
+     <span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="sh">"</span><span class="s">float64</span><span class="sh">"</span><span class="p">)</span>
+     <span class="n">self</span><span class="p">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tfp</span><span class="p">.</span><span class="n">optimizer</span><span class="p">.</span><span class="nf">lbfgs_minimize</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">loss</span><span class="p">,</span>
+                                                   <span class="n">max_iterations</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">,</span>
+                                                   <span class="n">initial_position</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span>
+                                                   <span class="n">num_correction_pairs</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                                                   <span class="n">max_line_search_iterations</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div>    </div>
   </li>
   <li>input data:
     <ul>
-      <li>$x0$ is resampled x, dimension (N x 1).</li>
-      <li>$u0$ randomly transposed row of u(t,x), results of specific <code class="language-plaintext highlighter-rouge">t</code>, with some noises (0 in Burger’s equation), dimension(N x 1)</li>
-      <li>$x1$ is vertically stacked data [-1,1].</li>
+      <li>$x0$ is a list of sampled input x.</li>
+      <li>$u0$ is randomly selected through the PDE solution, $u(t,x)$, at specific position, $x0$ and $t0$.</li>
+      <li>$x1$ is vertically stacked data [-1,1], the boundary condition.</li>
       <li>$dt$ is the random length of <code class="language-plaintext highlighter-rouge">t</code>, $t1-t0$, where $t0$ correponds to the position of $u0$.</li>
       <li><code class="language-plaintext highlighter-rouge">layers</code> is a list, representing the strusture of $f(t,x)$.</li>
-      <li>$q+1$ is the last element in <code class="language-plaintext highlighter-rouge">layers</code>, the target size at bounary condition, 100+1 samples.</li>
     </ul>
   </li>
-  <li>Via <code class="language-plaintext highlighter-rouge">net_U1</code> function, a (N, q+1) matrix is predicted by inputing a certain value of <code class="language-plaintext highlighter-rouge">x*</code> (N,1) in the $U1_{pred}$, which is the target of PINNs, with error calculated by
+  <li>With tThe model.train()</li>
+  <li>In the prediction of the PDE solution at the condition of $x^{<em>}$ and $t1$, the error between the predicted $u(t1,x^{</em>})$ and the measurement is defined as follows to show the accuracy. A smaller error shows a better accuracy.
     <div class="language-python highlighter-rouge"><div class="code-header">
         <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -831,11 +927,9 @@ data-driven solution and data-driven discovery of partial differential equations
   </li>
 </ol>
 
-<p><strong>Questiona are,</strong></p>
+<p><strong>Potential problems</strong></p>
 <ul>
-  <li>why the neurons of the last layer is firstly set as (q+1), and then clip the dimension of $U$ to be (N, q), instead of initially settled down as (N, q) in step 5?</li>
-  <li>the predicted matrix [:,:-1] (N,q) represents the distribution of solution $u(t,x)?</li>
-  <li>In training, $net_{U1}$ is put $x1$ with a dimension of (2,1); while in testing, $net_{U1}$ is put <code class="language-plaintext highlighter-rouge">x*</code> with a dimension of (N,1). Why the dimension of input in <code class="language-plaintext highlighter-rouge">U1_pred</code> is different?</li>
+  <li>In training, model.predict() gets two objects from net_U1(), the simulated output of $u(t,x)$ and $\frac{\partial u}{\partial x}$, but the error calculated in <code class="language-plaintext highlighter-rouge">step 7</code> may not deal with the gradient?</li>
 </ul>
 
 <p><strong>Changes in versions of tensorflow</strong></p>
@@ -848,19 +942,21 @@ data-driven solution and data-driven discovery of partial differential equations
 <ul>
   <li><code class="language-plaintext highlighter-rouge">tf.placeholder()</code> generates a map, different from tf. Varaibles() and tf.Tensor(). This type is hashable, while the other two are not.
     <ul>
-      <li>placeholder() with a new name <code class="language-plaintext highlighter-rouge">.._tf</code> in tf_dict.keys() is irreplaceable.</li>
+      <li>placeholder() with newly named input <code class="language-plaintext highlighter-rouge">x0_tf</code> as tf_dict.keys() for <code class="language-plaintext highlighter-rouge">feed_dict</code> is irreplaceable.</li>
     </ul>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">tf.compat.v1.dsable_eager_execution()</code> couldn’t be used, as in resources_variable_ops.py script, self.numpy() wouldn’t be implemented.
+  <li><code class="language-plaintext highlighter-rouge">tf.compat.v1.disable_eager_execution()</code> couldn’t be used, as in resources_variable_ops.py script, self.numpy() wouldn’t be implemented.
     <ul>
-      <li>To avoid loss in Adam shoule be a function in eager execution, if the disable function is used, then tensor.ref() is useless. As a result, tf.compat.v1.placeholder() couldn’t be replaced by tenspr.ref()</li>
-      <li>As a result, tf.gradients is taken place by tf.GradientTape(), which requires targets to be a list or nested tensors. In the case of deep learning, the forward function should be appplied within GradientTape().</li>
+      <li>If the <code class="language-plaintext highlighter-rouge">disable_eager_execution()</code> is used, then <code class="language-plaintext highlighter-rouge">tensor.ref()</code> is useless.</li>
+      <li>To avoid Error: loss in Adam should be a function in eager execution,  as a result, 
+    * <code class="language-plaintext highlighter-rouge">tf.compat.v1.placeholder()</code> couldn’t be replaced by <code class="language-plaintext highlighter-rouge">tensor.ref()</code>.
+    * <code class="language-plaintext highlighter-rouge">tf.gradients()</code> is taken place by <code class="language-plaintext highlighter-rouge">tf.GradientTape()</code>, which requires targets to be a list or nested tensors. In the case of deep learning, the forward function should be appplied within GradientTape().</li>
     </ul>
   </li>
   <li>Why both Adam and L-BFGS optimizer were used.
     <ul>
-      <li>With only Adam, the error calculated by $np.linalg.norm$ between $U1_pred[:,-1]$ (512,1) and $x$ (1, 512) is 1.37,</li>
-      <li>With both Adam and L-BFGS, the error is</li>
+      <li>With only Adam, the error calculated by $np.linalg.norm$ between U1_{pred[:,-1] (512,1) and $x$ (1, 512) is 1.37,</li>
+      <li>With both Adam and L-BFGS, the error is smaller</li>
     </ul>
   </li>
   <li>The effect of appending <code class="language-plaintext highlighter-rouge">tanh</code> in neural_net function.</li>
@@ -871,23 +967,38 @@ data-driven solution and data-driven discovery of partial differential equations
   </li>
 </ul>
 
-<p><strong>Difference between discrete time inference and continuous one</strong></p>
+<h4 id="continuous-time-inference-equation-shrödinger-equation"><span class="me-2">Continuous time inference equation: Shrödinger equation</span><a href="#continuous-time-inference-equation-shrödinger-equation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<p>It’s noticed that Burger’s equation is one-dimemsional equation, and the temporal variation is linearly represented. So, the difference in applying PINNs in a more complex equation is shown. The loss function contains initial conditions($MSE_{0}$), boundary conditions(MSE_{b}), and data of PDE(MSE_{f}). And it is noticeable that $MSE_{b}$ considers both $h$ and $h_{x}$.</p>
+
+\[\begin{align}
+&amp;ih_{t}+0.5h_{xx}+\lvert h \rvert^{2} = 0, x \in [-5,5], t \in [0, \pi/2] \\
+&amp;h(0,x)=2sech(x) \\
+&amp;h(t,-5)=h(t,5) \\
+&amp;h_{x}(t,-5)=h_{x}(t,5) \\
+\end{align}\]
+
+<h4 id="difference-between-discrete-time-inference-and-continuous-one"><span class="me-2">Difference between discrete time inference and continuous one</span><a href="#difference-between-discrete-time-inference-and-continuous-one" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<p>The biggest difference between discrete time inference and continuous one lies in the representation of the solution $u(x,t)$, where the last layer of the neural network is not 1 but q in usage, because it is exhibited by Runge-Kutta methods with q stages.</p>
 
 <p><strong>Personal views</strong></p>
 <ul>
-  <li>In th code of PINNs, it focues on the variation of <code class="language-plaintext highlighter-rouge">x</code> with a specific random value of <code class="language-plaintext highlighter-rouge">t</code></li>
   <li>The innovation lies in the treatment of loss function</li>
-  <li>What’s the difference between <code class="language-plaintext highlighter-rouge">PINNs</code> and <code class="language-plaintext highlighter-rouge">adding physics constraints into loss function</code><sup id="fnref:foot1" role="doc-noteref"><a href="#fn:foot1" class="footnote" rel="footnote">1</a></sup> ?</li>
+  <li>The difference between <code class="language-plaintext highlighter-rouge">PINNs</code> and <code class="language-plaintext highlighter-rouge">adding physics constraints into loss function</code><sup id="fnref:foot1" role="doc-noteref"><a href="#fn:foot1" class="footnote" rel="footnote">1</a></sup> ?
+      + PINNs gives a solution of PDE, with physical elements included in the loss function. It’s a NN-based algorithm, different from the latter that is process-based model with auxiliary physical concepts in the loss function. From my perspective, since PINNs could be further developped in the exploration of causality in the process-based models, typically in the environemntal sciences, because PDE is also a part of the complex process-based model. Apart from the differece, PINN is more like the physics-constrained machine learning<sup id="fnref:foot2" role="doc-noteref"><a href="#fn:foot2" class="footnote" rel="footnote">2</a></sup>, which takes place of an emipirical parameter in a complex equation. Therefore, with the explicit desrciption provided by PINNs and the causality explored by environemntal experiments, it is prospective to decribe the whole complex model, with reasonably devised sub NNs to dive into the mechanisms in real life.</li>
 </ul>
 
-<blockquote class="prompt-info">
-  <p>Code is updated and simplified here</p>
-</blockquote>
+<p><strong>Further development</strong></p>
+<ul>
+  <li>As mentioned in <code class="language-plaintext highlighter-rouge">Personal Views</code>, PINNs is potential to be not only a solution but to be updated with more causality in its architecture and applied in describing a complex system with better interpretability.</li>
+</ul>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:foot1" role="doc-endnote">
       <p>Chen H, Huang J J, Dash S S, et al. A hybrid deep learning framework with physical process description for simulation of evapotranspiration[J]. Journal of Hydrology, 2022, 606: 127422. <a href="#fnref:foot1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:foot2" role="doc-endnote">
+      <p>Zhao, W. L., Gentine, P., Reichstein, M., Zhang, Y., Zhou, S., Wen, Y., et al. (2019). Physics-constrained machine learning of evapotranspiration. Geophysical Research Letters, 46, 14496–14507. https://doi.org/10.1029/2019GL085291. <a href="#fnref:foot2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -1027,6 +1138,28 @@ data-driven solution and data-driven discovery of partial differential equations
 
 
 
+  <section id="access-lastmod">
+    <h2 class="panel-heading">Recently Updated</h2>
+    <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/AI4science/posts/pinns/">PINNs_Inference</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/AI4science/posts/categories/">Preface</a>
+        </li>
+      
+    </ul>
+  </section>
+  <!-- #access-lastmod -->
+
 
               <!-- The trending tags list -->
 
@@ -1054,6 +1187,16 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1068,8 +1211,6 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
-      
-    
   
     
     
@@ -1088,6 +1229,29 @@ data-driven solution and data-driven discovery of partial differential equations
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1121,13 +1285,16 @@ data-driven solution and data-driven discovery of partial differential equations
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/causal-deep-learning/">causal deep learning</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/deeponet/">deeponet</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/scientific-machine-learning/">scientific machine learning</a>
@@ -1181,6 +1348,30 @@ data-driven solution and data-driven discovery of partial differential equations
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1248,6 +1439,89 @@ data-driven solution and data-driven discovery of partial differential equations
           </a>
         </article>
       
+        <article class="col">
+          <a href="/AI4science/posts/pinn2-md/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1699243200"
+  data-df="ll"
+  
+>
+  Nov  6, 2023
+</time>
+
+              <h4 class="pt-0 my-2">PINNs_2.md</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  Data-driven discovery （inverse problems）
+
+Further Development
+
+  Is there any possibility to represent equations by machine learning, to break the limitation of human experiments?
+
+
+
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/AI4science/posts/deeponet/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1700193600"
+  data-df="ll"
+  
+>
+  Nov 17, 2023
+</time>
+
+              <h4 class="pt-0 my-2">DeepONet</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  “Inspired from the universal approximation theorem, neural networks with a single layer could not only approximates continuous functions, but also continuous functional or operators”1
+
+Concepts
+
+fu...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -1272,9 +1546,13 @@ data-driven solution and data-driven discovery of partial differential equations
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="Newer">
-      <p>-</p>
-    </div>
+    <a
+      href="/AI4science/posts/pinn2-md/"
+      class="btn btn-outline-primary"
+      aria-label="Newer"
+    >
+      <p>PINNs_2.md</p>
+    </a>
   
 </nav>
 
@@ -1297,7 +1575,7 @@ data-driven solution and data-driven discovery of partial differential equations
   <p>
     ©
     <time>2023</time>
-    <a href="https://github.com/Hhh-hyc/AI4science">Yisreal</a>.
+    <a href="https://github.com/Hhh-hyc/AI4science">YC</a>.
     
       <span
         data-bs-toggle="tooltip"
@@ -1345,6 +1623,16 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1359,8 +1647,6 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
-      
-    
   
     
     
@@ -1379,6 +1665,29 @@ data-driven solution and data-driven discovery of partial differential equations
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1412,13 +1721,16 @@ data-driven solution and data-driven discovery of partial differential equations
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/causal-deep-learning/">causal deep learning</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/deeponet/">deeponet</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/scientific-machine-learning/">scientific machine learning</a>
