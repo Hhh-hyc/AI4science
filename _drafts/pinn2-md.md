@@ -7,4 +7,10 @@ tags: [pinn]
 math: true
 mermaid: true
 ---
-### Data-driven discovery
+### Data-driven discovery （inverse problems）
+
+
+
+### Further Development
+1. Is there any possibility to represent equations by machine learning, to break the limitation of human experiments?
+

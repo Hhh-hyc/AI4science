@@ -24,7 +24,7 @@ Three separate aspects of scientific benchmarking that apply in the context of M
 - Scientific ML benchmarking. This is concerned with algorithmic improvements that help reach the scientific targets specified for a given dataset. 
   + - [x] SciNet[^f2]: discvering simple physical concepts between distances and angles in the earth-moon system.
   + - [x] Physics-informed neural networks[^f3]: solve and discover low-dimension nonlinear partial differential equations.
-  + Deep operator networks:
+  + - [x] Deep operator networks: a nested structure in learning operators (relationships between the input and output function).
 - Application benchmarking. This aspect of ML benchmarks is concerned with exploring the performance of the complete ML application.
   + hybrid models[^f4]: combineing concepts from machine learning and physically-based models, by parameterizing or replacing
   part of mechanisms with machine learning, in order to entitle ML with interpretability.
