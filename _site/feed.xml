@@ -4,7 +4,7 @@
   <id>http://localhost:4000/AI4science/</id>
   <title>AI for science</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-11-29T22:50:39+08:00</updated>
+  <updated>2023-11-30T09:36:02+08:00</updated>
   <author>
     <name>YC</name>
     <uri>http://localhost:4000/AI4science/</uri>
@@ -17,39 +17,6 @@
   <icon>/AI4science/assets/img/favicons/favicon.ico</icon>
   <logo>/AI4science/assets/img/favicons/favicon-96x96.png</logo>
 
-
-  
-  <entry>
-    <title>Fourier_Neural_Operator</title>
-    <link href="http://localhost:4000/AI4science/posts/fourier-neural-operator/" rel="alternate" type="text/html" title="Fourier_Neural_Operator" />
-    <published>2023-11-22T16:59:49+08:00</published>
-  
-    <updated>2023-11-22T16:59:49+08:00</updated>
-  
-    <id>http://localhost:4000/AI4science/posts/fourier-neural-operator/</id>
-    <content src="http://localhost:4000/AI4science/posts/fourier-neural-operator/" />
-    <author>
-      <name>YC</name>
-    </author>
-
-  
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-
-    </summary>
-  
-
-  </entry>
 
   
   <entry>
@@ -99,19 +66,21 @@ What DeepONet wants to do is to form a netw...
 
   
   <entry>
-    <title>do-why</title>
-    <link href="http://localhost:4000/AI4science/posts/do-why/" rel="alternate" type="text/html" title="do-why" />
-    <published>2023-11-12T22:58:15+08:00</published>
+    <title>PINNs_Inference</title>
+    <link href="http://localhost:4000/AI4science/posts/pinns/" rel="alternate" type="text/html" title="PINNs_Inference" />
+    <published>2023-11-04T12:00:00+08:00</published>
   
-    <updated>2023-11-12T22:58:15+08:00</updated>
+    <updated>2023-11-29T22:50:22+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/do-why/</id>
-    <content src="http://localhost:4000/AI4science/posts/do-why/" />
+    <id>http://localhost:4000/AI4science/posts/pinns/</id>
+    <content src="http://localhost:4000/AI4science/posts/pinns/" />
     <author>
       <name>YC</name>
     </author>
 
   
+    
+    <category term="Computational sciences" />
     
   
 
@@ -123,8 +92,12 @@ What DeepONet wants to do is to form a netw...
 
 
 
-      
+      Trained to solve supervised learning tasks, Physic-informed neural networks (PINNs) are defined for two classes of problems:
+data-driven solution and data-driven discovery of partial differential equations (PDEs).
 
+Data-driven solution
+
+Given a general form of PDEs $f(t,x)$, PINN could get to the solution $u(t,x)$ of this 1-dimensional non-linear equation with only small amount of training data...
     </summary>
   
 
@@ -132,19 +105,21 @@ What DeepONet wants to do is to form a netw...
 
   
   <entry>
-    <title>Discover physical laws</title>
-    <link href="http://localhost:4000/AI4science/posts/discover-physical-laws/" rel="alternate" type="text/html" title="Discover physical laws" />
-    <published>2023-11-12T22:58:15+08:00</published>
+    <title>Hybrid hydrologcial models</title>
+    <link href="http://localhost:4000/AI4science/posts/h2m/" rel="alternate" type="text/html" title="Hybrid hydrologcial models" />
+    <published>2023-10-30T00:00:00+08:00</published>
   
-    <updated>2023-11-12T22:58:15+08:00</updated>
+    <updated>2023-11-30T09:20:54+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/discover-physical-laws/</id>
-    <content src="http://localhost:4000/AI4science/posts/discover-physical-laws/" />
+    <id>http://localhost:4000/AI4science/posts/h2m/</id>
+    <content src="http://localhost:4000/AI4science/posts/h2m/" />
     <author>
       <name>YC</name>
     </author>
 
   
+    
+    <category term="models" />
     
   
 
@@ -156,8 +131,18 @@ What DeepONet wants to do is to form a netw...
 
 
 
-      
+      Concepts in H2M
 
+Parameters in hybrid models are categorized into ML parameters and physical parameters1. Thus, hybrid modeling are grouped into parameteric (both learned) and non-parameteric (the latter parameters fixed) ones.
+
+H2M structure
+
+
+The end-to-end hybrid hydrological model
+
+Creative points
+
+  A physical state $s_{t-1}$ is taken into the recurrent neural network $ g_{RNN} $ for accou...
     </summary>
   
 
@@ -165,19 +150,21 @@ What DeepONet wants to do is to form a netw...
 
   
   <entry>
-    <title>Auto_Diff</title>
-    <link href="http://localhost:4000/AI4science/posts/auto-diff/" rel="alternate" type="text/html" title="Auto_Diff" />
-    <published>2023-11-12T22:58:15+08:00</published>
+    <title>Preface</title>
+    <link href="http://localhost:4000/AI4science/posts/categories/" rel="alternate" type="text/html" title="Preface" />
+    <published>2023-10-29T00:00:00+08:00</published>
   
-    <updated>2023-11-12T22:58:15+08:00</updated>
+    <updated>2023-11-30T09:20:54+08:00</updated>
   
-    <id>http://localhost:4000/AI4science/posts/auto-diff/</id>
-    <content src="http://localhost:4000/AI4science/posts/auto-diff/" />
+    <id>http://localhost:4000/AI4science/posts/categories/</id>
+    <content src="http://localhost:4000/AI4science/posts/categories/" />
     <author>
       <name>YC</name>
     </author>
 
   
+    
+    <category term="ReadMe" />
     
   
 
@@ -189,8 +176,7 @@ What DeepONet wants to do is to form a netw...
 
 
 
-      
-
+      Great progresses have been made by researchers for the mutual devleopment between physically-based models (mechanism models) and Artificial intelligence (AI for short). Several typical milestones represent different genres, while reaching out the same purpose. To clarify each of them, from personal perspectives, groups are roughly made for better understanding of tags and categories in the foll...
     </summary>
   
 
