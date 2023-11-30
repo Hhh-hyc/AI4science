@@ -955,7 +955,7 @@ data-driven solution and data-driven discovery of partial differential equations
   </li>
   <li>Why both Adam and L-BFGS optimizer were used.
     <ul>
-      <li>With only Adam, the error calculated by $np.linalg.norm$ between U1_{pred[:,-1] (512,1) and $x$ (1, 512) is 1.37,</li>
+      <li>With only Adam, the error calculated by <code class="language-plaintext highlighter-rouge">np.linalg.norm$ between</code> U1_pred[:,-1] (512,1) and $x$ (1, 512) is 1.37,</li>
       <li>With both Adam and L-BFGS, the error is smaller</li>
     </ul>
   </li>
@@ -968,7 +968,7 @@ data-driven solution and data-driven discovery of partial differential equations
 </ul>
 
 <h4 id="continuous-time-inference-equation-shrödinger-equation"><span class="me-2">Continuous time inference equation: Shrödinger equation</span><a href="#continuous-time-inference-equation-shrödinger-equation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-<p>It’s noticed that Burger’s equation is one-dimemsional equation, and the temporal variation is linearly represented. So, the difference in applying PINNs in a more complex equation is shown. The loss function contains initial conditions($MSE_{0}$), boundary conditions(MSE_{b}), and data of PDE(MSE_{f}). And it is noticeable that $MSE_{b}$ considers both $h$ and $h_{x}$.</p>
+<p>It’s noticed that Burger’s equation is one-dimemsional equation, and the temporal variation is linearly represented. So, the difference in applying PINNs in a more complex equation is shown. The loss function contains initial conditions($MSE_{0}$), boundary conditions($MSE_{b}$), and data of PDE($MSE_{f}$). And it is noticeable that $MSE_{b}$ considers both $h$ and $h_{x}$.</p>
 
 \[\begin{align}
 &amp;ih_{t}+0.5h_{xx}+\lvert h \rvert^{2} = 0, x \in [-5,5], t \in [0, \pi/2] \\
@@ -1146,14 +1146,21 @@ data-driven solution and data-driven discovery of partial differential equations
         
         
         <li class="text-truncate lh-lg">
-          <a href="/AI4science/posts/pinns/">PINNs_Inference</a>
+          <a href="/AI4science/posts/categories/">Preface</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/AI4science/posts/categories/">Preface</a>
+          <a href="/AI4science/posts/h2m/">Hybrid hydrologcial models</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/AI4science/posts/pinns/">PINNs_Inference</a>
         </li>
       
     </ul>
@@ -1192,11 +1199,6 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
-  
-    
-    
-    
-    
       
         
         
@@ -1210,6 +1212,13 @@ data-driven solution and data-driven discovery of partial differential equations
     
     
     
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1285,10 +1294,10 @@ data-driven solution and data-driven discovery of partial differential equations
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/causal-deep-learning/">causal deep learning</a>
@@ -1348,18 +1357,6 @@ data-driven solution and data-driven discovery of partial differential equations
 
 
 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
@@ -1440,49 +1437,6 @@ data-driven solution and data-driven discovery of partial differential equations
         </article>
       
         <article class="col">
-          <a href="/AI4science/posts/pinn2-md/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1699243200"
-  data-df="ll"
-  
->
-  Nov  6, 2023
-</time>
-
-              <h4 class="pt-0 my-2">PINNs_2.md</h4>
-              <div class="text-muted">
-                <p>
-                  
-
-
-
-
-
-                  Data-driven discovery （inverse problems）
-
-Further Development
-
-  Is there any possibility to represent equations by machine learning, to break the limitation of human experiments?
-
-
-
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/AI4science/posts/deeponet/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1547,11 +1501,11 @@ fu...
 
   
     <a
-      href="/AI4science/posts/pinn2-md/"
+      href="/AI4science/posts/deeponet/"
       class="btn btn-outline-primary"
       aria-label="Newer"
     >
-      <p>PINNs_2.md</p>
+      <p>DeepONet</p>
     </a>
   
 </nav>
@@ -1628,11 +1582,6 @@ fu...
     
     
     
-  
-    
-    
-    
-    
       
         
         
@@ -1646,6 +1595,13 @@ fu...
     
     
     
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1721,10 +1677,10 @@ fu...
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/hybrid-models/">hybrid models</a>
+        <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/pinn/">pinn</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/AI4science/tags/causal-deep-learning/">causal deep learning</a>
